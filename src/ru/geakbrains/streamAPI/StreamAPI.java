@@ -1,3 +1,4 @@
+/*
 package ru.geakbrains.streamAPI;
 
 import java.lang.reflect.Array;
@@ -98,3 +99,4 @@ public class StreamAPI {
         //позволяет либо сохранить результат вызова метода в переменную или передачи метода в метод
     }
 }
+*/
