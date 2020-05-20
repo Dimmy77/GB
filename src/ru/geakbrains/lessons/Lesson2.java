@@ -1,11 +1,15 @@
 package ru.geakbrains.lessons;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 public class Lesson2 {
     static public void main(String[] args){
         //1.	Задать целочисленный массив, состоящий из элементов 0 и 1. Например: [ 1, 1, 0, 0, 1, 0, 1, 1, 0, 0 ].
         // С помощью цикла и условия заменить 0 на 1, 1 на 0;
         int []arr1={0,1,1,1,0,0,0,1,1};
         int i;
+//        System.out.println(Arrays.toString(arr1));
         System.out.println("Задание1");
         printArray("Исходный массив: ", arr1);
         for (i=0; i<arr1.length; i++){
@@ -15,15 +19,18 @@ public class Lesson2 {
             else{
                 arr1[i]--;
             }
+            //Тернарный оператор
+            //arr1[i]=(arr1[i]==1)? 0 : 1;
+            //бинарно
+            //arr1[i]=1-arr1[i];
         }
+
         printArray("\nПреобразованный массив: ", arr1);
 
         //2.	Задать пустой целочисленный массив размером 8. С помощью цикла заполнить его значениями 0 3 6 9 12 15 18 21;
         System.out.println("\n\nЗадание2");
         int[] arr2=new int[8];
-        for (i=0; i<arr2.length; i++){
-            arr2[i]=i*3;
-        }
+        fillProgressive(arr2,2);
         printArray("Результат задания: ", arr2);
 
         //3.	Задать массив [ 1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1 ] пройти по нему циклом, и числа меньшие 6 умножить на 2;
@@ -32,6 +39,8 @@ public class Lesson2 {
         printArray("Исходный массив: ", arr3);
         for (i=0; i<arr2.length; i++) {
             if(arr3[i]<6)arr3[i]*=2;
+            //Тернарный оператор
+            //arr3[i]=(arr3[i]<6)?arr3[i]*2:arr3[i];
         }
         printArray("\nПреобразованный массив: ", arr3);
 
@@ -39,8 +48,9 @@ public class Lesson2 {
         // цикла(-ов) заполнить его диагональные элементы единицами;
         System.out.print("\n\nЗадание4");
         int[][] arr4=new int[10][10];
-        for (i=0;i<10;i++){
-            arr4[i][i]=1;
+        for (i=0;i<arr4.length;i++){
+            arr4[i][i]=arr4[i][arr4.length-1-i]=1;
+            //arr4[i][arr4.length-1-i]=1;
             //String a = new String("\nСтрока "+ i);
             printArray("\nСтрока "+ i, arr4[i]);
         }
@@ -52,6 +62,7 @@ public class Lesson2 {
         min=max=arr3[0];
         do{
             if(arr3[i]<min) min=arr3[i];
+            //min=(arr3[i]<min)?arr3[i]:min;
             if(arr3[i]>max) max=arr3[i];
             i++;
         }while (i<arr3.length-1);
@@ -81,6 +92,12 @@ public class Lesson2 {
 
     }
 
+    static private void fillProgressive(int[] array, int progressive){
+        for (int i=0; i<array.length; i++){
+            array[i]=i*progressive;
+        }
+    }
+
     static private void printArray (String message, int[] array){
         System.out.print(message + "(");
         int length = array.length;
@@ -92,17 +109,20 @@ public class Lesson2 {
     }
 
     static private boolean hasBalance(int[] arg){
-        for(int i=0;i<arg.length;i++){
-            int countLeft=0, countRight=0;
-            for(int j=0;j<i;j++){
+        int countLeft=0;
+        for(int i=0;i<arg.length-1;i++){
+            int countRight=0;
+            countLeft+=arg[i];
+            /*for(int j=0;j<i;j++){
                 countLeft+=arg[j];
-            }
-            for(int j=i;j<arg.length;j++){
+            }*/
+            for(int j=i+1;j<arg.length;j++){
                 countRight+=arg[j];
             }
             if(countLeft==countRight) return true;
         }
         return false;
+        // Так же алгоритм можно построить посчитав сумму и вычитая потом элементы
     }
 
     static private int[] moveArrayMember(int[] arg, int n){
