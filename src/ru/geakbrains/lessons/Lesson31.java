@@ -1,5 +1,6 @@
 package ru.geakbrains.lessons;
 
+import java.util.Random;
 import java.util.Scanner;
 
 /*Написать программу, которая загадывает случайное число от 0 до 9
@@ -12,6 +13,7 @@ public class Lesson31 {
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
+        // Здесь можно предоставить выбор между 2 играми.
         short repeat=3;
         do{
             System.out.println("\nВам необходимо угадать число с "+ repeat+" попыток.");
@@ -21,6 +23,8 @@ public class Lesson31 {
     }
 
     private static void newGame(int range, short repeat){
+        //Random r=new Random();
+        //int number = r.nextInt();
         int number = (int) (Math.random() * range);
         for (int i=0; i<repeat; i++) {
             System.out.println("Попытка № "+(i+1)+".");
@@ -40,6 +44,16 @@ public class Lesson31 {
         }
     }
 
+    private static int getNumbetFromConcole(){
+        Scanner sc=new Scanner(System.in);
+        do{
+            if (sc.hasNextInt()){
+                return sc.nextInt();
+            }
+            System.out.println("Введите целое число");
+            sc.nextLine();
+        }while (true);
+    }
     private static boolean repeatGame(){
         System.out.println("Повторить игру еще раз? 1 – да / 0 – нет");
         while (true){
