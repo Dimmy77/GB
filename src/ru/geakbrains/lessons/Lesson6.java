@@ -92,8 +92,12 @@ public class Lesson6 {
 
         System.out.println("\n\n\nВариант с расчетом в Stream API:");
         System.out.println("Количество животных: "+Arrays.stream(zoo).count());
-        System.out.println("Количество кошек: "+Arrays.stream(zoo).filter(t->t.type.equals("Кошка")).count());
-        System.out.println("Количество собак: "+Arrays.stream(zoo).filter(t->t.type.equals("Собака")).count());
+        System.out.println("Количество кошек: "+Arrays.stream(zoo).
+                filter(t->t.type.equals("Кошка")).
+                count());
+        System.out.println("Количество собак: "+Arrays.stream(zoo).
+                filter(t->t.type.equals("Собака")).
+                count());
     }
 }
 
