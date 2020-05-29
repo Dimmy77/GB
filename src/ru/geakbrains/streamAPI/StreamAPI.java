@@ -5,6 +5,7 @@ import java.lang.reflect.Array;
 import java.util.*;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class StreamAPI {
     private static class Person{
@@ -57,8 +58,33 @@ public class StreamAPI {
                 .collect(Collectors.toList());
         //.forEach(System.out::println);
         System.out.println(engNames);
+//Пример
+        List <Integer> list = new ArrayList<>(Array(1,2,3,4,5));
+        List.stream().map(n -> n * 5).forEach(System.out::println);
+        list.stream().map(z->{
+            StringBuffer builder = new StringBuffer();
+            for(int i=0; i<z;i++){
+                builder.append("A");
+            }
+        }).forEach(str->System.out.println(str));
+        System.out.println(list.stream().filter(z->z<6).count());
+        list.stream().sorted().limit(3).forEach(System.out::println); //убрать первые 3
 
+        list.stream().allMatch(new Predicate<Integer>() { //возвращает boolean что ВСЕ элементы. anyMatch, что какой то 1 элемента,
+            @Override                                       //nonMatch - ни один элемент
+            public boolean test(Integer integer) {
+                return integer>0;
+            }
+        });
+        //тоже самое
+        System.out.println(list.stream().allMatch(n ->n>0));
 
+        //Option -контейнер. Используется для обработки исключений. Например если в результате поиска возвращается null
+        Optional<Integer> opt = list.stream().filter(n->n <3).findFirst();
+        opt.ifPresent(i->System.out.println(opt.get()));
+        opt.orElseThrow(()-> new RuntimeException("Something wrong"));
+
+//Еще примеры
         Runnable obj = new Runnable() {
             @Override
             public void run() {
@@ -97,6 +123,17 @@ public class StreamAPI {
         new Thread(r1);
         new Thread(r2);
         //позволяет либо сохранить результат вызова метода в переменную или передачи метода в метод
+
+        //Коллекторы
+
+        //Создание стрима
+        //Коллекции
+        List<String> strList = new ArrayList<>(Arrays.asList("A", "B", "C"));
+        //Массивы
+        String[] arr = {"A", "B", "C"};
+        Stream<String> arrStream = Arrays.stream(arr);
+        //Создание на ходу
+        Stream<String> streamBuilder = Stream.of("A", "B", "C");
     }
 }
 */
