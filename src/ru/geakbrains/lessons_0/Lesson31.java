@@ -1,6 +1,5 @@
-package ru.geakbrains.lessons;
+package ru.geakbrains.lessons_0;
 
-import java.util.Random;
 import java.util.Scanner;
 
 /*Написать программу, которая загадывает случайное число от 0 до 9

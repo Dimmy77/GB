@@ -1,4 +1,4 @@
-package ru.geakbrains.lessons;
+package ru.geakbrains.lessons_0;
 
 import java.util.Arrays;
 
@@ -40,7 +40,6 @@ public class Lesson6 {
         System.out.println("Количество животных: "+animal[0].count);
         System.out.println("Количество кошек: "+cats[0].count);
         System.out.println("Количество собак: "+dogs[0].count);
-
 
 
         //4.	* Добавить подсчет созданных котов, собак и животных. (Вариант с использование StreamAPI)

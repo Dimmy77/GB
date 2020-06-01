@@ -1,4 +1,4 @@
-package ru.geakbrains.lessons;
+package ru.geakbrains.lessons_0;
 
 public class Lesson5 {
     public static void main(String[] args){

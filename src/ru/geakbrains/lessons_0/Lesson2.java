@@ -1,7 +1,4 @@
-package ru.geakbrains.lessons;
-
-import java.lang.reflect.Array;
-import java.util.Arrays;
+package ru.geakbrains.lessons_0;
 
 public class Lesson2 {
     static public void main(String[] args){
