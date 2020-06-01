@@ -1,4 +1,4 @@
-package ru.geakbrains.lessons;
+package ru.geakbrains.lessons_0;
 
 public abstract class Animal {
         protected String name;
