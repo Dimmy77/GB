@@ -28,6 +28,10 @@ public abstract class Animal {
 
         public abstract void jump();
 
+        public static void fff(){
+            return;
+        }
+
         public void setName(String name){
             this.name = name;
         }

@@ -47,6 +47,8 @@ public class Lesson7 {
 
         }
 
+        //Cat.fff();
+
        System.out.println("\n\nКотики поели:");
         printCat(cat);
         Arrays.stream(plate).forEach(p->p.info());
