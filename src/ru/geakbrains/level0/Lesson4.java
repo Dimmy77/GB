@@ -1,4 +1,4 @@
-package ru.geakbrains.lessons_0;
+package ru.geakbrains.level0;
 
 import java.util.Arrays;
 import java.util.Scanner;

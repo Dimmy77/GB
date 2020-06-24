@@ -1,4 +1,4 @@
-package ru.geakbrains.lessons_0;
+package ru.geakbrains.level0;
 
 // 1. Создать класс "Сотрудник" с полями: ФИО, должность, email, телефон, зарплата, возраст.
 public class Employee {

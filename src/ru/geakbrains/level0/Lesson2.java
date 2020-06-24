@@ -1,4 +1,4 @@
-package ru.geakbrains.lessons_0;
+package ru.geakbrains.level0;
 
 public class Lesson2 {
     static public void main(String[] args){

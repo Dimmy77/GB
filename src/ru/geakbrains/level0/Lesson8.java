@@ -1,9 +1,7 @@
-package ru.geakbrains.lessons_0;
+package ru.geakbrains.level0;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.ImageObserver;
-import java.text.AttributedCharacterIterator;
 
 
 public class Lesson8 extends JFrame{
