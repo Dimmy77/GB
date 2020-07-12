@@ -11,6 +11,7 @@ public class ClientHandler {
     private DataInputStream in;
     private DataOutputStream out;
     private Server server;
+    private String nick;
 
     public ClientHandler(Server server, Socket socket) throws IOException {
         try {
@@ -23,15 +24,38 @@ public class ClientHandler {
                 @Override
                 public void run() {
                     try {
+                        while (true){
+                            String str =in.readUTF();
+                            if(str.startsWith("/auth")) {
+                                String[] tokens = str.split(" ");
+                                String newNick = AuthService.getNickByLoginAndPass(tokens[1], tokens[2]);
+                                if(newNick != null && !server.hasClient(newNick)){
+                                    sendMsg("/authok");
+                                    nick = newNick;
+                                    server.subscribe(ClientHandler.this);
+                                    break;
+                                }else if(server.hasClient(newNick)) {
+                                    sendMsg("Клиент уже подключен");
+                                }
+                                else{
+                                    sendMsg("Неверный логин/пароль");
+                                }
+                            }
+                        }
+
                         while (true) {
                             String str = in.readUTF();
                             if (str.equals("/end")) {
                                 out.writeUTF("/serverClosed");
-                                //1. При отключении клиента из сетевого чата, удалять его из списка клиентов.
-                                server.deleteClient(socket);
                                 break;
                             }
-                            server.broadcastMsg(str);
+                            if (str.startsWith("/w")){
+                                String[] tokens = str.split(" ");
+                                sendMsg("to "+tokens[1]+": "+tokens[2]);
+                                server.personalMsg("from " +nick + ": " + tokens[2], tokens[1]);
+                            }else {
+                                server.broadcastMsg(nick + ": " + str);
+                            }
                         }
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -51,6 +75,7 @@ public class ClientHandler {
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
+                        server.unsubscribe(ClientHandler.this);
                     }
 
                 }
@@ -68,6 +93,8 @@ public class ClientHandler {
             e.printStackTrace();
         }
     }
+
+    public String getNick(){return nick;}
 
     public Socket getSocket(){
         return socket;

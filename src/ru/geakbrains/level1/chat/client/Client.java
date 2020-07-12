@@ -18,6 +18,5 @@ public class Client extends Application {
         primaryStage.setTitle("Heroes chat");
         primaryStage.setScene(new Scene(root, 300, 500));
         primaryStage.show();
-
     }
 }

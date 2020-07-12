@@ -8,13 +8,20 @@
 <?scenebuilder-stylesheet /ru/geakbrains/level1/Lesson4/css/style.css?>
 
 <VBox alignment="CENTER" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.geakbrains.level1.chat.client.Controller">
-   <children>
+    <children>
+       <HBox fx:id = "upperPanel">
+           <TextField HBox.hgrow="ALWAYS" promptText="Логин" fx:id="loginField"/>
+           <PasswordField promptText="Пароль" fx:id="passwordField" onAction="#tryToAuth"/>
+           <Button text="Авторизоваться" onAction="#tryToAuth"/>
+       </HBox>
+
+
        <TextArea fx:id="textArea" editable="false" stylesheets="@../css/style.css" VBox.vgrow="ALWAYS" />
-       <HBox stylesheets="@../css/style.css">
+       <HBox stylesheets="@../css/style.css" fx:id="bottomPanel" managed="false" visible="false">
           <children>
               <TextField fx:id="textField" onAction="#sendMsg" prefHeight="41.0" prefWidth="477.0" promptText="Введите сообщение" stylesheets="@../css/style.css" HBox.hgrow="ALWAYS" />
               <Button fx:id="btn1" ellipsisString="          " onAction="#sendMsg" onContextMenuRequested="#setting" prefHeight="38.0" prefWidth="104.0" stylesheets="@../css/style.css" text="Send Msg" />
           </children>
        </HBox>
-   </children>
+    </children>
 </VBox>

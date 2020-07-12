@@ -1,0 +1,3 @@
+SELECT * FROM Users;
+INSERT INTO Users (id, login, password, nickname)
+VALUES (2, 'login2', 'pass1', 'nick1');

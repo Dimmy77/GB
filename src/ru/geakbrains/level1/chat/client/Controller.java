@@ -1,9 +1,13 @@
 package ru.geakbrains.level1.chat.client;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.HBox;
+import ru.geakbrains.level1.chat.server.AuthService;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -13,7 +17,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 
-public class Controller implements Initializable {
+public class Controller{
     @FXML
     TextArea textArea;
 
@@ -27,33 +31,72 @@ public class Controller implements Initializable {
     final String IP_ADRESS = "localhost";
     final int PORT = 8189;
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    @FXML
+    HBox bottomPanel;
+
+    @FXML
+    HBox upperPanel;
+
+    @FXML
+    TextField loginField;
+
+    @FXML
+    PasswordField passwordField;
+
+    private boolean isAuthorized;
+
+    public void setAuthorized(boolean isAuthorized){
+        this.isAuthorized = isAuthorized;
+        if(!isAuthorized){
+            upperPanel.setVisible(true);
+            upperPanel.setManaged(true);
+            bottomPanel.setVisible(false);
+            bottomPanel.setManaged(false);
+        }else{
+            upperPanel.setVisible(false);
+            upperPanel.setManaged(false);
+            bottomPanel.setVisible(true);
+            bottomPanel.setManaged(true);
+            textArea.clear();
+        }
+
+    }
+
+    public void connect() {
         try {
             socket = new Socket(IP_ADRESS, PORT);
             in = new DataInputStream(socket.getInputStream());
             out = new DataOutputStream(socket.getOutputStream());
 
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        while (true) {
-                            String str = in.readUTF();
-                            if (str.equalsIgnoreCase("/serverClosed")) {
-                                break;
-                            }
-                            textArea.appendText(str  + "\n");
-                        }
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    } finally {
-                        try {
-                            socket.close();
-                        } catch (IOException e) {
-                            e.printStackTrace();
+
+            new Thread(() -> {
+                try {
+                    while (true) {
+                        String str = in.readUTF();
+                        if (str.startsWith("/authok")) {
+                            setAuthorized(true);
+                            break;
+                        } else {
+                            textArea.appendText(str + "\n");
                         }
                     }
+
+                    while (true) {
+                        String str = in.readUTF();
+                        if (str.equalsIgnoreCase("/serverClosed")) {
+                            break;
+                        }
+                        textArea.appendText(str + "\n");
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } finally {
+                    try {
+                        socket.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    setAuthorized(false);
                 }
             }).start();
 
@@ -74,5 +117,19 @@ public class Controller implements Initializable {
 
     public void setting(){
 
+    }
+
+    public void tryToAuth(ActionEvent actionEvent) {
+        if(socket == null || socket.isClosed()){
+            connect();
+        }
+
+        try {
+            out.writeUTF("/auth "+loginField.getText()+" "+ passwordField.getText());
+            loginField.clear();
+            passwordField.clear();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
