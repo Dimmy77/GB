@@ -1,5 +1,6 @@
 package ru.geakbrains.level1.chat.client;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -132,4 +133,10 @@ public class Controller{
             e.printStackTrace();
         }
     }
+
+    @FXML
+    public void handleCloseButtonAction(){
+
+    }
+
 }

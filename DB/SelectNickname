@@ -1,6 +1,17 @@
 SELECT * FROM Users;
 
-Select nickname from Users where login = 'login1' and password = 'pass1'
+Select nickname from Users where login = 'login1' and password = 'pass1';
 
 INSERT INTO Users (id, login, password, nickname)
 VALUES (3, 'login3', 'pass3', 'nick3');
+
+select id from Blacklist where Nick_ID = 'login1';
+
+INSERT INTO Blacklist (Nick_ID, BlackNick_ID)
+VALUES (2, 3);
+
+DELETE FROM Blacklist where Nick_ID = 1 and BlackNick_ID = 2;
+
+select a1.id, a2.id, a1.nik, a2.nik, a1.....
+from tab1 a1, tab2 a2
+where a1.id=a2.id
