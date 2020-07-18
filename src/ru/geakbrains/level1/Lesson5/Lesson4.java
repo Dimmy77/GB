@@ -1,4 +1,4 @@
-package ru.geakbrains.level1.Lesson4;
+package ru.geakbrains.level1.Lesson5;
 
 public class Lesson4 {
 
