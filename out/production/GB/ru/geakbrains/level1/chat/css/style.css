@@ -3,7 +3,8 @@
 }
 
 .root {
-    -fx-background-image: url("../image1/background.jpg");
+    -fx-background-image: url("../image/background.jpg");
+
 }
 
 #hBox{
@@ -13,7 +14,7 @@
 #btn1{
     -fx-font-family: "Franklin Gothic Book";
     -fx-font-size: 14px;
-    -fx-background-image: url("../image1/Send_Up.jpg");
+    -fx-background-image: url("../image/Send_Up.jpg");
     -fx-background-size: 100% 100%;
     -fx-background-color:transparent;
 
@@ -22,7 +23,7 @@
     -fx-padding: 10 10 10 30;
     -fx-font-family: "-fx-font-family: "Franklin Gothic Book";";
     -fx-font-size: 14px;
-    -fx-background-image: url("../image1/textArea.jpg");
+    -fx-background-image: url("../image/textArea.jpg");
     -fx-background-color:transparent;
 
         -fx-background-size: 100% 100%;
@@ -31,14 +32,14 @@
 }
 
 #hBox{
-    -fx-background-image: url("../image1/hBox.jpg");
+    -fx-background-image: url("../image/hBox.jpg");
 }
 
 #textArea{
     -fx-padding: 20 20 20 20;
     -fx-font-family: "-fx-font-family: "Franklin Gothic Book";";
     -fx-font-size: 14px;
-    -fx-background-image: url("../image1/background.jpg");
+    -fx-background-image: url("../image/background.jpg");
     -fx-background-color: transparent;
     -fx-background-size: 100% 100%;
 
