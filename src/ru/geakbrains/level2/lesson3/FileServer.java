@@ -10,6 +10,7 @@ public class FileServer {
     private static String FILE = "stud.ser";
     private File file;
 
+
     FileServer(int port){
         try {
             socket = new ServerSocket(port);

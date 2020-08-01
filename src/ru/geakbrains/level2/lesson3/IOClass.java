@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
-public class IOClass {
+public class  IOClass {
 
     public static void main(String[] args){
         //Задание 1

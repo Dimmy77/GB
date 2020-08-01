@@ -8,6 +8,7 @@ public class FileClient {
     private static String FILE = "stud.ser";
     private File file;
 
+
     FileClient(String host, int port, Student obj){
         try {
             file = new File(FILE);
