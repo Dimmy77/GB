@@ -1,0 +1,24 @@
+авг 09, 2020 12:29:34 PM java.util.logging.LogManager$RootLogger log
+INFO: Test #0has 4 or 1 at position 11
+авг 09, 2020 12:29:34 PM java.util.logging.LogManager$RootLogger log
+INFO: Test #0has 4 or 1 at position 20
+авг 09, 2020 12:29:34 PM java.util.logging.LogManager$RootLogger log
+INFO: Test #0has 4 or 1 at position 37
+авг 09, 2020 12:29:34 PM java.util.logging.LogManager$RootLogger log
+INFO: Test #0has 4 or 1 at position 53
+авг 09, 2020 12:29:34 PM java.util.logging.LogManager$RootLogger log
+INFO: Test #0has 4 or 1 at position 68
+авг 09, 2020 12:29:34 PM java.util.logging.LogManager$RootLogger log
+INFO: Test #0has 4 or 1 at position 72
+авг 09, 2020 12:29:34 PM java.util.logging.LogManager$RootLogger log
+INFO: Test #1has 4 or 1 at position 7
+авг 09, 2020 12:29:34 PM java.util.logging.LogManager$RootLogger log
+INFO: Test #1has 4 or 1 at position 19
+авг 09, 2020 12:29:34 PM java.util.logging.LogManager$RootLogger log
+INFO: Test #1has 4 or 1 at position 42
+авг 09, 2020 12:29:34 PM java.util.logging.LogManager$RootLogger log
+INFO: Test #1has 4 or 1 at position 43
+авг 09, 2020 12:29:34 PM java.util.logging.LogManager$RootLogger log
+INFO: Test #1has 4 or 1 at position 64
+авг 09, 2020 12:29:34 PM java.util.logging.LogManager$RootLogger log
+INFO: Test #1has 4 or 1 at position 66
