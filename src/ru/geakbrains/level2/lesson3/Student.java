@@ -1,6 +1,8 @@
 package ru.geakbrains.level2.lesson3;
 
-public class Student {
+import java.io.Serializable;
+
+public class Student implements Serializable {
     private String name;
     private int score;
     Student(String name, int score){
