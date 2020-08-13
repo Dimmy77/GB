@@ -27,6 +27,7 @@ public class IntTest{
                 if (test.operation().equals("DevToZero")) {
                     for (int i = 0; i < secondArgument.length; i++) {
                         if (secondArgument[i] == 0) {
+
                             System.out.println(test.operation() + ": " + test.failMsg());
                             result = false;
                             return false;

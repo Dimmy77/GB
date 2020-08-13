@@ -14,4 +14,5 @@ public @interface Test {
     String operation();
     String okMsg() default "Test - OK";
     String failMsg() default "Test - FALSE";
+
 }

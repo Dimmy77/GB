@@ -35,6 +35,7 @@ public class NewTest {
         for(Method m: c.getDeclaredMethods()) {
             if (m.isAnnotationPresent(BeforeSuite.class)) {
                 methodList.add(m);
+
             }
         }
 
