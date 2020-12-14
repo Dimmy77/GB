@@ -1,0 +1,26 @@
+авг 09, 2020 12:29:33 PM java.util.logging.LogManager$RootLogger log
+INFO: Test #0has 4 at position 4
+авг 09, 2020 12:29:34 PM java.util.logging.LogManager$RootLogger log
+INFO: Test #0has 4 at position 45
+авг 09, 2020 12:29:34 PM java.util.logging.LogManager$RootLogger log
+WARNING: Test #0has last 4 at position 45
+авг 09, 2020 12:29:34 PM java.util.logging.LogManager$RootLogger log
+WARNING: Test #1dosn't have 4
+авг 09, 2020 12:29:34 PM java.util.logging.LogManager$RootLogger log
+INFO: Test #2has 4 at position 1
+авг 09, 2020 12:29:34 PM java.util.logging.LogManager$RootLogger log
+INFO: Test #2has 4 at position 34
+авг 09, 2020 12:29:34 PM java.util.logging.LogManager$RootLogger log
+INFO: Test #2has 4 at position 54
+авг 09, 2020 12:29:34 PM java.util.logging.LogManager$RootLogger log
+INFO: Test #2has 4 at position 89
+авг 09, 2020 12:29:34 PM java.util.logging.LogManager$RootLogger log
+WARNING: Test #2has last 4 at position 89
+авг 09, 2020 12:29:34 PM java.util.logging.LogManager$RootLogger log
+INFO: Test #3has 4 at position 30
+авг 09, 2020 12:29:34 PM java.util.logging.LogManager$RootLogger log
+INFO: Test #3has 4 at position 35
+авг 09, 2020 12:29:34 PM java.util.logging.LogManager$RootLogger log
+INFO: Test #3has 4 at position 52
+авг 09, 2020 12:29:34 PM java.util.logging.LogManager$RootLogger log
+WARNING: Test #3has last 4 at position 52
